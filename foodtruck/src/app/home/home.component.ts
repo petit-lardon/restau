@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  img = 'assets/images/piza-3010062_1920.jpg';
   constructor() { }
 
   ngOnInit() {
