@@ -8,5 +8,23 @@
         </mat-datepicker-toggle>
         <mat-datepicker #picker startView="year" [startAt]="date"></mat-datepicker>
     </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="Hours" formControlName="time">
+            <mat-option *ngFor="let hour of timeOptions" [value]="hour">
+                {{hour}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select placeholder="People" formControlName="people">
+            <mat-option *ngFor="let people of peopleOptions" [value]="people">
+                {{people}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
 </form>
+
+{{ reservationForm.value | json }}
 

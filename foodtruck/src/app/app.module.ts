@@ -10,7 +10,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 import {
     MatToolbarModule, MatDatepickerModule, MatInputModule, MatFormFieldModule, MatButtonModule, MatNativeDateModule,
     MatSidenavModule, MatIconModule, MatListModule, MatCardModule, MatGridListModule, MatMenuModule, MatTableModule,
-    MatPaginatorModule, MatSortModule, MAT_DATE_LOCALE
+    MatPaginatorModule, MatSortModule, MAT_DATE_LOCALE, MatSelectModule
 } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { CarteComponent } from './carte/carte.component';
@@ -53,6 +53,7 @@ const routes: Routes = [
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatSelectModule,
     MatDatepickerModule,
     MatInputModule,
     MatFormFieldModule,
