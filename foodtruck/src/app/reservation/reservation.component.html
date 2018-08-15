@@ -1,12 +1,12 @@
 <form [formGroup]="reservationForm">
-    <input type="date" formControlName="date">
-    <select formControlName="time">
-        <option *ngFor="let time of timeOptions">{{ time }}</option>
-    </select>
-    <select formControlName="people">
-        <option *ngFor="let people of peopleOptions">{{ people }}</option>
-    </select>
-    <input type="submit">
+    <!-- on associe le formgroup déclaré dans reservation.component -->
+    <mat-form-field class="example-full-width">
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
+        <!-- formControlName mis a dispo avec ReactiveFormsModule de app.module et lié au date dans createForm du reservation.component -->
+        <mat-datepicker-toggle matSuffix [for]="picker">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #picker startView="year" [startAt]="date"></mat-datepicker>
+    </mat-form-field>
 </form>
 
-{{ reservationForm.value | json }}
