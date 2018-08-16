@@ -13,6 +13,7 @@ export class ReservationComponent implements OnInit {
   timeOptions = ['12:00', '13:00'];
   peopleOptions = [1, 2, 3];
 
+  isSchedule = false;
   client = {firstName: '', lastName: '', email: '', phone: ''}
 
   constructor(private formBuilder: FormBuilder) { }
@@ -30,8 +31,15 @@ export class ReservationComponent implements OnInit {
     })
   }
 
+  saveReservation() {
+    if(this.reservationForm.valid) {
+      console.log(this.reservationForm);
+      this.isSchedule = true;
+    }
+  }
+
   finaliseReservation(form) {
-      console.log(form);
+    console.log(form);
     if(form.valid) {
         console.log(form.value);
     }
