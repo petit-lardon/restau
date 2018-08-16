@@ -13,6 +13,8 @@ export class ReservationComponent implements OnInit {
   timeOptions = ['12:00', '13:00'];
   peopleOptions = [1, 2, 3];
 
+  client = {firstName: '', lastName: '', email: '', phone: ''}
+
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
