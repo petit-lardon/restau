@@ -29,4 +29,11 @@ export class ReservationComponent implements OnInit {
         people: 1
     })
   }
+
+  finaliseReservation(form) {
+      console.log(form);
+    if(form.valid) {
+        console.log(form.value);
+    }
+  }
 }

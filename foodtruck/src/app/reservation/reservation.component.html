@@ -29,7 +29,7 @@
 {{ reservationForm.value | json }}
 
 <!-- creation d'une variable côté template grace au # initialisée du compo ngForm fourni par angular -->
-<form #form="ngForm">
+<form #form="ngForm" (submit)="finaliseReservation(form)">
     <mat-form-field>
         <!-- [()] 2WayBinding [] permet de récupérer du typescript et () de retourner les données au ts -->
         <input matInput type="text" name="firstName" [(ngModel)]="client.firstName" placeholder="firstname">
@@ -43,6 +43,7 @@
     <mat-form-field>
         <input matInput type="text" name="phone" [(ngModel)]="client.phone" placeholder="phone">
     </mat-form-field>
+    <button mat-button type="submit">Send</button>
 </form>
 
 {{ form.controls.firstName?.value }}
