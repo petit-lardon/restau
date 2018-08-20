@@ -18,11 +18,13 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { ContactComponent } from './contact/contact.component';
 import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
 import { MainTableComponent } from './main-table/main-table.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'carte', component: CarteComponent},
     {path: 'reservation', component: ReservationComponent},
+    {path: 'programme', component: ScheduleComponent},
     {path: 'contact', component: ContactComponent}
 ];
 
@@ -35,7 +37,8 @@ const routes: Routes = [
     ReservationComponent,
     ContactComponent,
     MainDashboardComponent,
-    MainTableComponent
+    MainTableComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,
