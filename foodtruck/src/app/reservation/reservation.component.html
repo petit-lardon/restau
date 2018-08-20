@@ -1,0 +1,53 @@
+<div *ngIf="isSchedule === false">
+    <form [formGroup]="reservationForm" (submit)="saveReservation()">
+        <!-- on associe le formgroup déclaré dans reservation.component -->
+        <mat-form-field class="example-full-width">
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date">
+            <!-- formControlName mis a dispo avec ReactiveFormsModule de app.module et lié au date dans createForm du reservation.component -->
+            <mat-datepicker-toggle matSuffix [for]="picker">
+                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker startView="year" [startAt]="date"></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select placeholder="Hours" formControlName="time">
+                <mat-option *ngFor="let hour of timeOptions" [value]="hour">
+                    {{hour}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select placeholder="People" formControlName="people">
+                <mat-option *ngFor="let people of peopleOptions" [value]="people">
+                    {{people}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-button type="submit">Confirm</button>
+    </form>
+    {{ reservationForm.value | json }}
+</div>
+
+<div *ngIf="isSchedule === true">
+    <!-- creation d'une variable côté template grace au # initialisée du compo ngForm fourni par angular -->
+    <form #form="ngForm" (submit)="finaliseReservation(form)">
+        <mat-form-field>
+            <!-- [()] 2WayBinding [] permet de récupérer du typescript et () de retourner les données au ts -->
+            <input matInput type="text" name="firstName" [(ngModel)]="client.firstName" placeholder="firstname">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" name="lastName" [(ngModel)]="client.lastName" placeholder="lastname">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" name="email" [(ngModel)]="client.email" placeholder="email">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" name="phone" [(ngModel)]="client.phone" placeholder="phone">
+        </mat-form-field>
+        <button mat-button type="submit">Send</button>
+    </form>
+
+    {{ form.controls.firstName?.value }}
+</div>
